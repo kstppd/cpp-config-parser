@@ -173,26 +173,29 @@ void ConfigLine::format()
 
   formatted = oss.str();
   trim(formatted);
-  if (numWordsInString(formatted) < 2                     // not enough words
-  || (!quoteOpened && numWordsInString(formatted) > 2)    // quote wasn't opened for string argument
-  || (quoteOpened && formatted.back() != '"')             // quote wasn't the last character
-  || (quoteOpened && withinQuote)                         // quote wasn't closed
-  || (quoteOpened && getNthWord(formatted, 2).front() != '"')) // quote wasn't opened immediately
+  if ((!quoteOpened && numWordsInString(formatted) > 2)         // quote wasn't opened for string argument
+  ||  (quoteOpened && formatted.back() != '"')                  // quote wasn't the last character
+  ||  (quoteOpened && withinQuote)                              // quote wasn't closed
+  ||  (quoteOpened && getNthWord(formatted, 2).front() != '"')) // quote wasn't opened immediately
   {
     std::string errorMessage = "ConfigParser: Invalid line: " + original;
     throw std::runtime_error(errorMessage);
   }
 
   parameter = getNthWord(formatted, 1);
-  if (!quoteOpened)
+
+  if (numWordsInString(formatted) > 1)
   {
-    value = getNthWord(formatted, 2);
-  }
-  else
-  {
-    std::size_t openQuotePos = formatted.find_first_of('"', parameter.size());
-    value = formatted.substr(openQuotePos + 1);
-    value.pop_back();
+    if (!quoteOpened)
+    {
+      value = getNthWord(formatted, 2);
+    }
+    else
+    {
+      std::size_t openQuotePos = formatted.find_first_of('"', parameter.size());
+      value = formatted.substr(openQuotePos + 1);
+      value.pop_back();
+    }
   }
 }
 
