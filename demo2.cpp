@@ -1,4 +1,4 @@
-#include "ConfigParser.h"
+#include "ConfigParser.hpp"
 #include <iostream>
 
 int main(int argc, char **argv)
@@ -10,7 +10,7 @@ int main(int argc, char **argv)
   }
 
   ConfigParser parser(argv[1]);
-  std::cout << "simple_string: " << parser.getString("simple_string") << "\n";
+  std::cout << "\nsimple_string: " << parser.getString("simple_string") << "\n";
   std::cout << "complex_string: " << parser.getString("complex_string") << "\n";
 
   std::cout << "\n";
@@ -29,6 +29,6 @@ int main(int argc, char **argv)
   std::cout << "true2: " << parser.getBool("true2") << "\n";
   std::cout << "false1: " << parser.getBool("false1") << "\n";
   std::cout << "false2: " << parser.getBool("false2") << "\n";
-  std::cout << "false3: " << parser.getBool("false3") << "\n";
+  std::cout << "false3: " << parser.getBool("false3") << "\n\n";
 }
 

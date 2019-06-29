@@ -1,4 +1,4 @@
-#include "ConfigParser.h"
+#include "ConfigParser.hpp"
 #include <iostream>
 
 int main(int argc, char **argv)
@@ -24,6 +24,7 @@ int main(int argc, char **argv)
       std::cout << value << std::endl;
   }
 
+  std::cout << "Final value: " << value << "\n";
   std::cout << parser.getString("STRING_TO_PRINT_AT_END") << std::endl;
 
   return 0;
