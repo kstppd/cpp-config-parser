@@ -15,7 +15,7 @@ You can use this simply by including ConfigParser.hpp (i.e., ConfigParser.cpp an
 
 ### Demo Files
 
-Compile the demo files with the makefile. The run them using:
+Compile the demo files with the makefile. Then run them using:
 
 `./demo demo.cfg`
 
