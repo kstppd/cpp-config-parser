@@ -12,3 +12,11 @@ Use # to make comments. Comments can be made at the end of lines or can have an 
 Blank lines are ignored.
 
 You can use this simply by including ConfigParser.hpp (i.e., ConfigParser.cpp and ConfigParser.h aren't needed, they're just here in case you want them).
+
+### Demo Files
+
+Compile the demo files with the makefile. The run them using:
+
+`./demo demo.cfg`
+
+`./demo2 demo2.cfg`
