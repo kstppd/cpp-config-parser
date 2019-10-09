@@ -1,10 +1,10 @@
 #ifndef CONFIG_PARSER
 #define CONFIG_PARSER
 
+#include <algorithm>
 #include <fstream>
 #include <map>
 #include <sstream>
-
 
 //------------------------------------------------------------------------------
 //
